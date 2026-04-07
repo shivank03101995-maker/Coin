@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>USDT BEP20 Payment</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="card">
+        <img src="./logo.png" alt="USDT logo" class="logo" />
+        <h1>USDT (BEP20) Payment Receiver</h1>
+        <p class="muted">
+          Network: BNB Smart Chain (Chain ID 56) | Fixed pricing: 1 USDT = $1
+        </p>
+
+        <div class="grid">
+          <label>Payment Contract</label>
+          <input id="contractAddress" placeholder="0x..." />
+
+          <label>Invoice ID (string)</label>
+          <input id="invoiceIdText" placeholder="INV-1001" />
+
+          <label>USDT Contract (official)</label>
+          <input id="usdtAddress" value="0x55d398326f99059fF775485246999027B3197955" />
+        </div>
+
+        <div class="actions">
+          <button id="connectBtn">Connect Wallet</button>
+          <button id="payBtn">Approve + Pay Invoice</button>
+        </div>
+
+        <pre id="status"></pre>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+  </html>
