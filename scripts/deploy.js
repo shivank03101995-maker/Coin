@@ -1,21 +1,22 @@
 const { ethers } = require("hardhat");
 
 async function main() {
-  const officialUsdtBep20 = process.env.USDT_BEP20_ADDRESS || "0x55d398326f99059fF775485246999027B3197955";
-  const treasury = process.env.TREASURY_ADDRESS;
   const owner = process.env.OWNER_ADDRESS;
+  const initialSupply = process.env.INITIAL_SUPPLY || "100000";
 
-  if (!treasury || !owner) {
-    throw new Error("Set TREASURY_ADDRESS and OWNER_ADDRESS in .env");
+  if (!owner) {
+    throw new Error("Set OWNER_ADDRESS in .env");
   }
 
-  const Factory = await ethers.getContractFactory("UsdtPaymentReceiver");
-  const contract = await Factory.deploy(officialUsdtBep20, treasury, owner);
+  const Factory = await ethers.getContractFactory("USDT");
+  const contract = await Factory.deploy(owner, initialSupply);
   await contract.waitForDeployment();
 
-  console.log("UsdtPaymentReceiver deployed to:", await contract.getAddress());
-  console.log("USDT token:", officialUsdtBep20);
-  console.log("Treasury:", treasury);
+  console.log("USDT deployed to:", await contract.getAddress());
+  console.log("Name:", await contract.name());
+  console.log("Symbol:", await contract.symbol());
+  console.log("Decimals:", await contract.decimals());
+  console.log("Initial supply:", initialSupply);
   console.log("Owner:", owner);
 }
 

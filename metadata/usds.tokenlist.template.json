@@ -1,0 +1,19 @@
+{
+  "name": "USDT Token List",
+  "timestamp": "2026-04-08T00:00:00.000Z",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "tokens": [
+    {
+      "chainId": 56,
+      "address": "0xYOUR_DEPLOYED_TOKEN_ADDRESS",
+      "name": "USD Token",
+      "symbol": "USDT",
+      "decimals": 18,
+      "logoURI": "http://bafybeiglhphpovaq2wsn5hcxajyjyryxbtcw4skvwyh7pq6j54xlxai4ku.ipfs.localhost:8081/?filename=token_logo_256.png"
+    }
+  ]
+}

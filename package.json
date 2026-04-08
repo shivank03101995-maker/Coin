@@ -1,15 +1,13 @@
 {
-  "name": "bep20-usdt-payment-receiver",
+  "name": "usds-bep20-token",
   "version": "1.0.0",
   "private": true,
-  "description": "BEP20 USDT payment receiver with invoice business logic",
+  "description": "Mintable BEP20 USDS token on BNB Smart Chain",
   "scripts": {
     "compile": "hardhat compile",
     "test": "hardhat test",
     "deploy:bsc": "hardhat run scripts/deploy.js --network bsc",
-    "deploy:bscTestnet": "hardhat run scripts/deploy.js --network bscTestnet",
-    "invoice:create:bsc": "hardhat run scripts/createInvoice.js --network bsc",
-    "serve:web": "npx serve web -l 4173"
+    "deploy:bscTestnet": "hardhat run scripts/deploy.js --network bscTestnet"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
