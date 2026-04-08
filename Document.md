@@ -249,3 +249,82 @@ prepare the final token list JSON for your deployed address format
 help you choose a simple free way to host the image publicly
 
 11:45 AM
+
+====================================================================================================
+
+I fixed the project so testnet deployment is now pointed at the right token contract:
+
+contracts/USDS.sol now defines USDS with on-chain name/symbol USDS
+scripts/deploy.js now deploys USDS instead of USDT
+I also verified the code compiles successfully with npm run compile.
+
+When I reran the deploy on April 8, 2026 with npm run deploy:bscTestnet, it failed because the sandbox could not resolve the BSC testnet RPC hostname:
+getaddrinfo EAI_AGAIN data-seed-prebsc-1-s1.binance.org
+
+I requested network access to rerun the exact same deploy command, but that approval was rejected, so I couldn’t complete the live deployment from here.
+
+You can deploy now from your terminal with:
+=========================================================================================
+
+<!-- ###BSC_RPC_URL=https://bsc-dataseed.binance.org/
+BSC_TESTNET_RPC_URL=https://data-seed-prebsc-1-s1.bnbchain.org:8545
+DEPLOYER_PRIVATE_KEY=0b4d6561b581f53d97dcbf5ac9e419fbe31334793a24e2466d743e9bc7748c56
+
+OWNER_ADDRESS=0xb8eb450762361D92E264C34CC0ef8FC8cE62c2ca
+INITIAL_SUPPLY=100000
+
+PAYMENT_CONTRACT_ADDRESS=0xb8eb450762361D92E264C34CC0ef8FC8cE62c2ca
+INVOICE_TEXT_ID=INV-1001
+USD_CENTS=100
+INVOICE_REFERENCE=Order_1001 -->
+====================================================================================================
+npm run deploy:bscTestnet
+If you want me to finish the on-chain deploy for you in this session, approve the network-enabled rerun and I’ll pick it up immediately.
+
+
+2 files changed
++4
+-4
+Undo
+
+Review
+contracts/USDS.sol
+scripts/deploy.js
+shivank@shivank-Inspiron-7415-2-in-1:~/Desktop/Project$ npm run deploy:bscTestnet
+
+> usds-bep20-token@1.0.0 deploy:bscTestnet
+> hardhat run scripts/deploy.js --network bscTestnet
+
+WARNING: You are currently using Node.js v18.19.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+
+
+USDS deployed to: 0x8dfBA515773Dd05c13Ba6609B3f5b0172f335766
+Name: USDS
+Symbol: USDS
+Decimals: 18n
+Initial supply: 100000
+Owner: 0xb8eb450762361D92E264C34CC0ef8FC8cE62c2ca
+
+please deploy usdt instead of usds
+
+
+
+
+Worked for 1m 4s
+The token is now deployed on BSC testnet as USDT.
+
+Deployment result:
+
+Contract: 0x787311dD6b36e54EdE526d1782EBaEB10b169C69
+Name: USDT
+Symbol: USDT
+Decimals: 18
+Initial supply: 100000
+Owner: 0xb8eb450762361D92E264C34CC0ef8FC8cE62c2ca
+I updated contracts/USDS.sol so the contract class and token metadata are USDT, and updated scripts/deploy.js to deploy that contract. I also recompiled successfully before deploying.
+
+Your earlier testnet deployment at 0x8dfBA515773Dd05c13Ba6609B3f5b0172f335766 is the old USDS token. If you want, I can next update the README, package description, and token-list template so the repo consistently says USDT everywhere.
+
+
+================================================================================
+

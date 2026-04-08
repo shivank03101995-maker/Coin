@@ -9,11 +9,11 @@
   "tokens": [
     {
       "chainId": 56,
-      "address": "0xYOUR_DEPLOYED_TOKEN_ADDRESS",
-      "name": "USD Token",
+      "address": "0x787311dD6b36e54EdE526d1782EBaEB10b169C69",
+      "name": "USDT Token",
       "symbol": "USDT",
       "decimals": 18,
-      "logoURI": "http://bafybeiglhphpovaq2wsn5hcxajyjyryxbtcw4skvwyh7pq6j54xlxai4ku.ipfs.localhost:8081/?filename=token_logo_256.png"
+      "logoURI": "https://github.com/shivank03101995-maker/USDT-TOKEN/blob/main/logo.png"
     }
   ]
 }

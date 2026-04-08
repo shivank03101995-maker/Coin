@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract USDS is ERC20, ERC20Burnable, Ownable {
+contract USDT is ERC20, ERC20Burnable, Ownable {
     uint8 private immutable tokenDecimals;
 
     constructor(address initialOwner, uint256 initialSupply) ERC20("USDT", "USDT") Ownable(initialOwner) {
